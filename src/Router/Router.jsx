@@ -1,11 +1,19 @@
-import React from 'react';
+import { createBrowserRouter } from "react-router";
+import Layout from "../Layout/Layout";
+import HomePage from "../Pages/HomePage";
 
-const Router = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+const router = createBrowserRouter([
+   {
+      path: '/',
+      Component: Layout,
+      children:[{
+         index:true,
+         path: '/',
+         Component: HomePage
+      }]
+   }
+])
 
-export default Router;
+
+
+export default router
