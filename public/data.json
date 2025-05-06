@@ -1,0 +1,522 @@
+[
+    {
+      "id": 1,
+      "name": "bKash Limited",
+      "logo": "https://i.ibb.co.com/rRKH7L07/ddfe12f44e2178b540bb5c143898f95f.jpg",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.bkash.com",
+      "industry": "Fintech",
+      "jobs": [
+        {
+          "id": 101,
+          "title": "Mobile Financial Services Officer",
+          "bannerImage": "https://example.com/banners/fintech.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳50,000 - ৳70,000",
+          "jobType": "Full-time",
+          "description": "Manage mobile financial services operations and customer support.",
+          "requirements": [
+            "Bachelor's degree in Finance or related field",
+            "2+ years experience in banking/financial services",
+            "Excellent communication skills",
+            "Knowledge of mobile payment systems",
+            "Problem-solving abilities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Grameenphone",
+      "logo": "https://i.ibb.co.com/Kj4xp34C/grameenphone-logo-png-seeklogo-249793.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.grameenphone.com",
+      "industry": "Telecommunications",
+      "jobs": [
+        {
+          "id": 201,
+          "title": "Network Engineer",
+          "bannerImage": "https://example.com/banners/telecom.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳60,000 - ৳90,000",
+          "jobType": "Full-time",
+          "description": "Design and maintain telecommunications network infrastructure.",
+          "requirements": [
+            "BSc in Computer Science/Engineering",
+            "CCNA/CCNP certification preferred",
+            "3+ years network engineering experience",
+            "Knowledge of 4G/5G technologies",
+            "Strong troubleshooting skills"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Square Pharmaceuticals",
+      "logo": "https://i.ibb.co.com/BHg9pJbq/Square-Inc-Logo-wine.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.squarepharma.com.bd",
+      "industry": "Pharmaceutical",
+      "jobs": [
+        {
+          "id": 301,
+          "title": "Quality Control Officer",
+          "bannerImage": "https://example.com/banners/pharma.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳45,000 - ৳65,000",
+          "jobType": "Full-time",
+          "description": "Ensure quality standards in pharmaceutical production.",
+          "requirements": [
+            "BPharm/MPharm degree",
+            "2+ years QC experience in pharma",
+            "Knowledge of GMP guidelines",
+            "Analytical skills",
+            "Attention to detail"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "BRAC",
+      "logo": "https://i.ibb.co.com/xSrm1tmW/images-1.jpg",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.brac.net",
+      "industry": "NGO",
+      "jobs": [
+        {
+          "id": 401,
+          "title": "Project Coordinator",
+          "bannerImage": "https://example.com/banners/ngo.jpg",
+          "location": "Cox's Bazar, Bangladesh",
+          "salary": "৳55,000 - ৳75,000",
+          "jobType": "Full-time",
+          "description": "Coordinate development projects in Rohingya refugee camps.",
+          "requirements": [
+            "Master's in Social Science/Development Studies",
+            "3+ years NGO experience",
+            "Field work experience",
+            "Report writing skills",
+            "Fluency in English and Bangla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Daraz Bangladesh",
+      "logo": "https://i.ibb.co.com/Kc2WpKpN/Aarong.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.daraz.com.bd",
+      "industry": "E-commerce",
+      "jobs": [
+        {
+          "id": 501,
+          "title": "Digital Marketing Executive",
+          "bannerImage": "https://example.com/banners/ecommerce.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳40,000 - ৳60,000",
+          "jobType": "Full-time",
+          "description": "Manage digital campaigns for Bangladesh's leading e-commerce platform.",
+          "requirements": [
+            "Bachelor's in Marketing/Business",
+            "2+ years digital marketing experience",
+            "Facebook/Google Ads expertise",
+            "Analytical skills",
+            "Creative content creation ability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Bangladesh Bank",
+      "logo": "https://i.ibb.co.com/Kc2WpKpN/Aarong.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.bb.org.bd",
+      "industry": "Banking",
+      "jobs": [
+        {
+          "id": 601,
+          "title": "Assistant Director",
+          "bannerImage": "https://example.com/banners/banking.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳80,000 - ৳110,000",
+          "jobType": "Full-time",
+          "description": "Regulatory oversight of financial institutions in Bangladesh.",
+          "requirements": [
+            "Master's in Economics/Finance/Banking",
+            "5+ years banking experience",
+            "Strong analytical skills",
+            "Knowledge of monetary policy",
+            "BCS (Bank) cadre preferred"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Aarong",
+      "logo": "https://i.ibb.co.com/Kc2WpKpN/Aarong.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.aarong.com",
+      "industry": "Retail",
+      "jobs": [
+        {
+          "id": 701,
+          "title": "Store Manager",
+          "bannerImage": "https://example.com/banners/retail.jpg",
+          "location": "Chattogram, Bangladesh",
+          "salary": "৳50,000 - ৳70,000",
+          "jobType": "Full-time",
+          "description": "Manage daily operations of Aarong retail outlet.",
+          "requirements": [
+            "Bachelor's degree in any discipline",
+            "3+ years retail management experience",
+            "Customer service skills",
+            "Inventory management knowledge",
+            "Leadership abilities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "The Daily Star",
+      "logo": "https://i.ibb.co.com/SXSqCmMq/the-daily-star-logo-png-seeklogo-351053.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.thedailystar.net",
+      "industry": "Media",
+      "jobs": [
+        {
+          "id": 801,
+          "title": "Reporter",
+          "bannerImage": "https://example.com/banners/media.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳45,000 - ৳65,000",
+          "jobType": "Full-time",
+          "description": "Cover news stories for Bangladesh's leading English daily.",
+          "requirements": [
+            "Bachelor's in Journalism/English",
+            "2+ years reporting experience",
+            "Excellent writing skills",
+            "News judgment ability",
+            "Multimedia storytelling skills"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Bangladesh Garment Manufacturers and Exporters Association (BGMEA)",
+      "logo": "https://i.ibb.co.com/Yrt0ZmW/BGMEA-Logo.jpg",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.bgmea.com.bd",
+      "industry": "Textile",
+      "jobs": [
+        {
+          "id": 901,
+          "title": "Compliance Officer",
+          "bannerImage": "https://example.com/banners/rmg.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳60,000 - ৳85,000",
+          "jobType": "Full-time",
+          "description": "Ensure RMG factories comply with international labor standards.",
+          "requirements": [
+            "Bachelor's in any discipline",
+            "3+ years compliance experience in RMG sector",
+            "Knowledge of Accord/Alliance standards",
+            "Audit experience",
+            "Report writing skills"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Banglalink",
+      "logo": "https://i.ibb.co.com/F4fdR5kC/banglalink-logo-vector.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.banglalink.net",
+      "industry": "Telecommunications",
+      "jobs": [
+        {
+          "id": 1001,
+          "title": "IT Support Engineer",
+          "bannerImage": "https://example.com/banners/it.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳50,000 - ৳75,000",
+          "jobType": "Full-time",
+          "description": "Provide technical support for telecom IT infrastructure.",
+          "requirements": [
+            "BSc in CSE/EEE",
+            "2+ years IT support experience",
+            "Networking knowledge",
+            "Troubleshooting skills",
+            "Customer service orientation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Pran-RFL Group",
+      "logo": "https://i.ibb.co.com/Gf3Hw935/RFL-Group.jpg",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.prangroup.com",
+      "industry": "FMCG",
+      "jobs": [
+        {
+          "id": 1101,
+          "title": "Sales Executive",
+          "bannerImage": "https://example.com/banners/fmcg.jpg",
+          "location": "Countrywide, Bangladesh",
+          "salary": "৳35,000 - ৳50,000 + Commission",
+          "jobType": "Full-time",
+          "description": "Manage sales and distribution of FMCG products nationwide.",
+          "requirements": [
+            "Bachelor's in Business/Marketing",
+            "1+ years sales experience",
+            "Negotiation skills",
+            "Distribution network knowledge",
+            "Willingness to travel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "United International University",
+      "logo": "https://i.ibb.co.com/dscdC0hj/united-international-university-uiu-logo-png-seeklogo-486818.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.uiu.ac.bd",
+      "industry": "Education",
+      "jobs": [
+        {
+          "id": 1201,
+          "title": "Lecturer (Computer Science)",
+          "bannerImage": "https://example.com/banners/education.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳55,000 - ৳75,000",
+          "jobType": "Full-time",
+          "description": "Teach undergraduate courses in Computer Science department.",
+          "requirements": [
+            "MSc in CSE from reputed university",
+            "Teaching experience preferred",
+            "Research publications a plus",
+            "Excellent communication skills",
+            "Passion for teaching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Berger Paints Bangladesh",
+      "logo": "https://i.ibb.co.com/1YynWqnr/default-social.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.bergerbd.com",
+      "industry": "Manufacturing",
+      "jobs": [
+        {
+          "id": 1301,
+          "title": "Chemical Engineer",
+          "bannerImage": "https://example.com/banners/manufacturing.jpg",
+          "location": "Chittagong, Bangladesh",
+          "salary": "৳60,000 - ৳85,000",
+          "jobType": "Full-time",
+          "description": "Develop and improve paint formulations at manufacturing plant.",
+          "requirements": [
+            "BSc/MSc in Chemical Engineering",
+            "3+ years formulation experience",
+            "Paint industry knowledge preferred",
+            "Quality control experience",
+            "Problem-solving skills"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Islami Bank Bangladesh Ltd",
+      "logo": "https://i.ibb.co.com/YVDD9Jh/706d8c131819091-Y3-Jvc-Cwz-MDAw-LDIz-NDYs-MCwz-Mj-Y.jpg",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.islamibankbd.com",
+      "industry": "Banking",
+      "jobs": [
+        {
+          "id": 1401,
+          "title": "Shariah Compliance Officer",
+          "bannerImage": "https://example.com/banners/islamicbank.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳70,000 - ৳95,000",
+          "jobType": "Full-time",
+          "description": "Ensure banking operations comply with Islamic Shariah principles.",
+          "requirements": [
+            "Degree in Islamic Studies/Finance",
+            "3+ years Islamic banking experience",
+            "Shariah certification preferred",
+            "Audit experience",
+            "Knowledge of AAOIFI standards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Bangladesh Railway",
+      "logo": "https://i.ibb.co.com/kss3K3xn/512x512bb.jpg",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.railway.gov.bd",
+      "industry": "Transportation",
+      "jobs": [
+        {
+          "id": 1501,
+          "title": "Civil Engineer",
+          "bannerImage": "https://example.com/banners/railway.jpg",
+          "location": "Countrywide, Bangladesh",
+          "salary": "৳65,000 - ৳90,000",
+          "jobType": "Full-time",
+          "description": "Supervise railway infrastructure development projects nationwide.",
+          "requirements": [
+            "BSc in Civil Engineering",
+            "BCS (Engineering) cadre preferred",
+            "3+ years construction experience",
+            "Project management skills",
+            "Willingness to work at project sites"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Bangladesh Power Development Board",
+      "logo": "https://i.ibb.co.com/whcTCsnH/6312410b16e32183790759.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.bpdb.gov.bd",
+      "industry": "Energy",
+      "jobs": [
+        {
+          "id": 1601,
+          "title": "Electrical Engineer",
+          "bannerImage": "https://example.com/banners/power.jpg",
+          "location": "Countrywide, Bangladesh",
+          "salary": "৳70,000 - ৳100,000",
+          "jobType": "Full-time",
+          "description": "Work on power generation and distribution projects across Bangladesh.",
+          "requirements": [
+            "BSc in Electrical Engineering",
+            "BCS (Engineering) cadre preferred",
+            "Power sector experience",
+            "Substation knowledge",
+            "Willingness to work at remote sites"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Bangladesh Civil Service (Administration)",
+      "logo": "https://i.ibb.co.com/Fqb7JvwY/bangladesh-fire-service-and-civil-defence-logo-png-seeklogo-302469.png",
+      "location": "Countrywide, Bangladesh",
+      "website": "https://www.bpsc.gov.bd",
+      "industry": "Government",
+      "jobs": [
+        {
+          "id": 1701,
+          "title": "Assistant Commissioner",
+          "bannerImage": "https://example.com/banners/govt.jpg",
+          "location": "District Level, Bangladesh",
+          "salary": "৳80,000 - ৳120,000",
+          "jobType": "Full-time",
+          "description": "Administrative position in Bangladesh Civil Service (Administration Cadre).",
+          "requirements": [
+            "Master's degree from recognized university",
+            "BCS (Administration) cadre",
+            "Leadership qualities",
+            "Public administration knowledge",
+            "Willingness to serve anywhere in Bangladesh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Bangladesh Cricket Board",
+      "logo": "https://i.ibb.co.com/xqqPLLKh/images.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.tigercricket.com.bd",
+      "industry": "Sports",
+      "jobs": [
+        {
+          "id": 1801,
+          "title": "Sports Development Officer",
+          "bannerImage": "https://example.com/banners/cricket.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳60,000 - ৳85,000",
+          "jobType": "Full-time",
+          "description": "Develop cricket talent at grassroots level across Bangladesh.",
+          "requirements": [
+            "Degree in Sports Science/related field",
+            "Cricket coaching certification",
+            "3+ years sports development experience",
+            "Knowledge of talent identification",
+            "Passion for cricket development"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Bangladesh Tourism Board",
+      "logo": "https://i.ibb.co.com/xqpHMsSV/btb.png",
+      "location": "Dhaka, Bangladesh",
+      "website": "https://www.tourismboard.gov.bd",
+      "industry": "Tourism",
+      "jobs": [
+        {
+          "id": 1901,
+          "title": "Tourism Promotion Officer",
+          "bannerImage": "https://example.com/banners/tourism.jpg",
+          "location": "Dhaka, Bangladesh",
+          "salary": "৳55,000 - ৳75,000",
+          "jobType": "Full-time",
+          "description": "Promote Bangladesh as tourist destination through marketing campaigns.",
+          "requirements": [
+            "Bachelor's in Marketing/Tourism",
+            "2+ years marketing experience",
+            "Creative campaign ideas",
+            "Multilingual skills preferred",
+            "Knowledge of Bangladesh tourism spots"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Bangladesh Agricultural Research Institute",
+      "logo": "https://i.ibb.co.com/S4cBktXJ/bangladesh-agricultural-research-institute-logo-png-seeklogo-427703.png",
+      "location": "Gazipur, Bangladesh",
+      "website": "https://www.bari.gov.bd",
+      "industry": "Agriculture",
+      "jobs": [
+        {
+          "id": 2001,
+          "title": "Agricultural Researcher",
+          "bannerImage": "https://example.com/banners/agriculture.jpg",
+          "location": "Gazipur, Bangladesh",
+          "salary": "৳65,000 - ৳90,000",
+          "jobType": "Full-time",
+          "description": "Conduct research on crop improvement and sustainable agriculture.",
+          "requirements": [
+            "PhD in Agriculture/related field",
+            "Research publication record",
+            "Field research experience",
+            "Knowledge of local farming practices",
+            "Problem-solving approach"
+          ]
+        }
+      ]
+    }
+  ]

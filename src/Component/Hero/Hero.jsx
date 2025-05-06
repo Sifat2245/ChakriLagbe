@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <div className='text-center min-h-screen mt-48'>
+        <div className='text-center  mt-48 pb-80'>
             <h1 className='text-4xl md:text-6xl text-white font-bold mb-8'>Find The Job That <br />
                 Fits Your Life</h1>
 
@@ -13,7 +13,7 @@ const Hero = () => {
                 <input
                     type="text"
                     placeholder="Search by keyword"
-                    className=" w-full md:w-1/3 p-3  text-sm border-r-1 border-[#00000036]"
+                    className=" w-full md:w-1/3 p-3  text-sm  md:border-r-1 border-[#00000036]"
                 />
 
                 {/* Location Dropdown */}
@@ -25,7 +25,7 @@ const Hero = () => {
                 </select>
 
                 {/* Category Dropdown */}
-                <select className="w-full md:w-1/4 p-3 text-sm border-l-1 border-[#00000036]">
+                <select className="w-full md:w-1/4 p-3 text-sm md:border-l-1 border-[#00000036]">
                     <option defaultValue>All Categories</option>
                     <option>IT & Software</option>
                     <option>Marketing</option>

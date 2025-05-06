@@ -88,7 +88,7 @@ const Navbar = () => {
 
             {/* Navbar Wrapper for full-width background */}
             <div
-                className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white'
+                className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${isScrolled ? 'bg-white text-black shadow-xl' : 'bg-transparent text-white'
                     }`}
             >
                 {/* Navbar Content */}

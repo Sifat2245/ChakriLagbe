@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.ibb.co.com/9HBHs89F/react-ytu4.png",
+        "categoryName": "Software Development",
+        "availableJobs": 124
+    },
+    {
+        "id": 2,
+        "image": "https://i.ibb.co.com/23sCynf8/urban-design-tz8n.png",
+        "categoryName": "Graphic Design",
+        "availableJobs": 58
+    },
+    {
+        "id": 3,
+        "image": "https://i.ibb.co.com/xtM28JnK/social-dashboard-81sv.png",
+        "categoryName": "Digital Marketing",
+        "availableJobs": 76
+    },
+    {
+        "id": 4,
+        "image": "https://i.ibb.co.com/TMps0Tgb/online-review-08y6.png",
+        "categoryName": "Customer Service",
+        "availableJobs": 102
+    },
+    {
+        "id": 5,
+        "image": "https://i.ibb.co.com/1JYsv9VP/calculator-21hp.png",
+        "categoryName": "Finance & Accounting",
+        "availableJobs": 39
+    },
+    {
+        "id": 6,
+        "image": "https://i.ibb.co.com/V6SCdzt/medicine-hqqg.png",
+        "categoryName": "Healthcare",
+        "availableJobs": 87
+    },
+    {
+        "id": 7,
+        "image": "https://i.ibb.co.com/4b7NQRW/building-burz.png",
+        "categoryName": "Engineering",
+        "availableJobs": 44
+    },
+    {
+        "id": 8,
+        "image": "https://i.ibb.co.com/Q7k6F0q1/education-3vwh.png",
+        "categoryName": "Education & Training",
+        "availableJobs": 68
+    },
+    {
+        "id": 9,
+        "image": "https://i.ibb.co.com/3mmSxcwT/logic-bj1j.png",
+        "categoryName": "Human Resources",
+        "availableJobs": 51
+    }
+]
