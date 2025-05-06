@@ -5,6 +5,7 @@ import Hero from '../Component/Hero/Hero';
 import { Outlet } from 'react-router';
 import Footer from '../Component/Footer/Footer';
 import JobCategory from '../Component/JobCategory/JobCategory';
+import HowItWorks from '../Component/HowItWorks/HowItWorks';
 
 const Layout = () => {
     return (
@@ -15,7 +16,7 @@ const Layout = () => {
             </header>
             <main>
                 <JobCategory></JobCategory>
-                <Outlet></Outlet>
+                <HowItWorks></HowItWorks>
             </main>
             <footer>
                 <Footer></Footer>
