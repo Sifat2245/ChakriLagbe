@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect, use } from 'react';
 import { Link, NavLink } from 'react-router';
+import login from '../../assets/login.png'
+import signup from '../../assets/signp.png'
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -13,6 +16,90 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+
+
+    // modal functionality
+
+    const modalRef = useRef(null);
+    const [activeTab, setActiveTab] = useState('login');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+        document.body.classList.add('overflow-hidden');
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    useEffect(() => {
+        if (isModalOpen) {
+            modalRef.current?.showModal();
+        } else {
+            modalRef.current?.close();
+        }
+    }, [isModalOpen]);
+
+    const handleOverlayClick = (e) => {
+        if (e.target === modalRef.current) {
+            closeModal();
+        }
+    };
+
+    //firebase authentication
+
+    const { createUser, loginUser, logOutUser, setUser, user } = use(AuthContext)
+
+    //create user 
+    const handleRegister = (e) => {
+        e.preventDefault()
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user
+                // console.log(user);
+                setUser(user)
+            })
+            .catch((error) => {
+                console.log(error.code);
+            })
+    }
+
+    //login user
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        loginUser(email, password)
+        .then((result) => {
+            const user = result.user;
+            console.log(user);
+            setUser(user)
+        })
+        .catch((error) =>{
+            console.log(error.code);
+        })
+    }
+
+    //logout user
+    const handleLogout = () => {
+        logOutUser()
+            .then(() => {
+                alert('logout successfully');
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
     const links = (
         <>
@@ -81,7 +168,12 @@ const Navbar = () => {
                 <ul className=" p-4 space-y-6 font-bold mt-3">
                     {links}
                     <li>
-                        <a className="btn bg-transparent rounded-3xl hover:bg-black hover:text-white">Sign In / Register</a>
+                        {
+                            user ?
+                                <a className="btn bg-transparent rounded-3xl hover:bg-black hover:text-white">Log Out</a>
+                                : <a onClick={openModal} className="btn bg-transparent rounded-3xl hover:bg-black hover:text-white">Sign In / Register</a>
+                        }
+
                     </li>
                 </ul>
             </div>
@@ -102,14 +194,25 @@ const Navbar = () => {
                     </div>
 
                     <div className="navbar-end">
-                        <Link
-                            className={`border ${isScrolled
-                                ? 'border-black text-black hover:bg-black hover:text-white'
-                                : 'border-[#f1f1f1] text-[#f1f1f1] hover:bg-white hover:text-black'
-                                } p-2 px-3 rounded-2xl text-[12px] bg-transparent hidden md:block font-bold transition-all duration-300 ease-in-out`}
-                        >
-                            Sign In / Register
-                        </Link>
+                        {
+                            user ? <Link
+                                onClick={handleLogout}
+                                className={`border ${isScrolled
+                                    ? 'border-black text-black hover:bg-black hover:text-white'
+                                    : 'border-[#f1f1f1] text-[#f1f1f1] hover:bg-white hover:text-black'
+                                    } p-2 px-3 rounded-2xl text-[12px] bg-transparent hidden md:block font-bold transition-all duration-300 ease-in-out`}
+                            >
+                                Logout
+                            </Link> : <Link
+                                onClick={openModal}
+                                className={`border ${isScrolled
+                                    ? 'border-black text-black hover:bg-black hover:text-white'
+                                    : 'border-[#f1f1f1] text-[#f1f1f1] hover:bg-white hover:text-black'
+                                    } p-2 px-3 rounded-2xl text-[12px] bg-transparent hidden md:block font-bold transition-all duration-300 ease-in-out`}
+                            >
+                                Sign In / Register
+                            </Link>
+                        }
 
                         {/* Hamburger */}
                         <button
@@ -137,6 +240,104 @@ const Navbar = () => {
 
             {/* Spacer to prevent content jump */}
             <div className="h-16"></div>
+
+
+            {/* auth modal */}
+            <dialog
+                ref={modalRef}
+                className={`modal ${isModalOpen ? 'modal-open' : ''}`}
+                onClick={handleOverlayClick}
+            >
+                <div className="modal-box relative bg-white rounded-lg shadow-lg w-11/12 max-w-md p-6 animate__animated animate__fadeIn animate__faster">
+                    <form method="dialog">
+                        <button
+                            type="button"
+                            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                            onClick={closeModal}
+                        >
+                            ✕
+                        </button>
+                    </form>
+
+
+                    {/* Login Form */}
+                    {activeTab === 'login' ? (
+                        <form onSubmit={handleLogin} className="space-y-6 p-12 w-full mx-auto">
+                            <div>
+                                <img className='px-20' src={login} alt="" />
+                            </div>
+                            <div className='text-center pb-3'>
+                                <h1 className='text-2xl font-semibold'>Welcome Back!</h1>
+                            </div>
+                            <input
+                                type="email"
+                                name='email'
+                                placeholder="Email"
+                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
+                                required
+                            />
+                            <input
+                                type="password"
+                                name='password'
+                                placeholder="Password"
+                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
+                                required
+                            />
+                            <button type="submit" className="btn bg-[#1d225f] text-white  w-full rounded-4xl text-lg py-6">Login</button>
+                            <div className="flex flex-col items-center gap-3">
+                                <a href="/forgot-password" className=" hover:underline text-[#1d225f] my-3">Forgot Password?</a>
+                                <p>New At Chakri Lagbe? <span type="button" className=" hover:underline text-[#1d225f]" onClick={() => setActiveTab('signup')}>Create An Account</span></p>
+                            </div>
+                        </form>
+
+                    ) : (
+                        // Sign Up Form
+                        <form onSubmit={handleRegister} className="space-y-6 p-12 w-full mx-auto">
+                            <div>
+                                <img className='px-16' src={signup} alt="" />
+                            </div>
+                            <div className='text-center pb-3'>
+                                <h1 className='text-2xl font-semibold'>Create An Account</h1>
+                            </div>
+                            <input
+                                type="text"
+                                name='name'
+                                placeholder="Full Name"
+                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
+                                required
+                            />
+                            <input
+                                type="text"
+                                name='photo'
+                                placeholder='Image URL'
+                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
+                                required
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                name='email'
+                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
+                                required
+                            />
+                            <input
+                                type="password"
+                                name='password'
+                                placeholder="Password"
+                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
+                                required
+                            />
+                            <button type="submit" className="btn bg-[#1d225f] text-white  w-full rounded-4xl text-lg py-6">Sign Up</button>
+                            <div className="text-sm text-center">
+                                <p className="text-gray-600">Already have an account?
+                                    <button type="button" className="[#1d225f] hover:underline" onClick={() => setActiveTab('login')}> Sign In</button>
+                                </p>
+                            </div>
+                        </form>
+
+                    )}
+                </div>
+            </dialog>
 
         </>
     );
