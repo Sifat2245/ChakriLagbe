@@ -6,6 +6,7 @@ import { Outlet } from 'react-router';
 import Footer from '../Component/Footer/Footer';
 import JobCategory from '../Component/JobCategory/JobCategory';
 import HowItWorks from '../Component/HowItWorks/HowItWorks';
+import Companies from '../Component/Companies/Companies';
 
 const Layout = () => {
     return (
@@ -17,6 +18,7 @@ const Layout = () => {
             <main>
                 <JobCategory></JobCategory>
                 <HowItWorks></HowItWorks>
+                <Companies></Companies>
             </main>
             <footer>
                 <Footer></Footer>

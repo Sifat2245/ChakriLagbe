@@ -34,17 +34,15 @@ const HowItWorks = () => {
             key={index}
             className='relative bg-white p-6 rounded-2xl flex-1 flex flex-col items-center'
           >
-            {/* Step number */}
+            
             <div className='absolute top-4 right-4 bg-[#fa9332] text-white w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold'>
               {step.id}
             </div>
-
-            {/* Image */}
+ 
             <div className='mb-4 relative w-full flex justify-center'>
               <img className='h-26 w-40' src={step.img} alt={step.title} />              
             </div>
-
-            {/* Text */}
+    
             <h2 className='font-semibold text-[20px] text-[#00000085] mt-2'>{step.title}</h2>
             <p className='text-[16px] mt-2 whitespace-pre-line text-gray-600'>{step.description}</p>
           </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <div className='text-center  mt-48 pb-80'>
+        <div className='text-center  mt-60 pb-96'>
             <h1 className='text-4xl md:text-6xl text-white font-bold mb-8'>Find The Job That <br />
                 Fits Your Life</h1>
 

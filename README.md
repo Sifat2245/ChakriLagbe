@@ -1,12 +1,29 @@
-# React + Vite
+# Chakri Lagbe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Hero Section](./src/assets/Screenshot%202025-05-07%20024932.png)
 
-Currently, two official plugins are available:
+**Chakri Lagbe** is a job portal designed to connect job seekers with employers. Whether you're searching for your first job or looking to switch careers, Chakri Lagbe simplifies the process of job discovery and application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔍 Purpose
 
-## Expanding the ESLint configuration
+The purpose of this website is to create a user-friendly platform where:
+- **Job seekers** can find job listings relevant to their skills and location.
+- **Employers** can post job openings and manage applications.
+- Both parties can connect efficiently and securely in a digital environment.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- 📝 Job posting and browsing
+- 🔎 Search and filter functionality by job title, category, and location
+- 💼 Employer dashboard to manage job listings
+- 👤 Candidate dashboard to manage applications
+- 📄 Apply to jobs with uploaded resume
+- 📱 Fully responsive design for mobile and desktop
+
+## 🛠️ Technologies Used
+
+- **Frontend**: React, Tailwind CSS, DaisyUI
+- **Data Handling**: JSON files (used for job listings and company data)
+- **Authentication**: Firebase Auth
+- **Hosting**: (e.g., Surge for frontend
+- **Version Control**: Git & GitHub
