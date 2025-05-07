@@ -69,7 +69,7 @@ const Navbar = () => {
 
             {/* Sidebar Drawer */}
             <div
-                className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 left-0 h-full w-64 bg-white text-black z-50 transform transition-transform duration-300 ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <div className="p-4 flex justify-between items-center border-b">
@@ -94,7 +94,7 @@ const Navbar = () => {
                 {/* Navbar Content */}
                 <div className="navbar w-full md:w-4/5 mx-auto">
                     <div className="navbar-start">
-                        <a className="hover:cursor-pointer p-4 text-xl"><span className='font-bold'>Chakri</span> Lagbe</a>
+                        <Link to={'/'} className="hover:cursor-pointer p-4 text-xl"><span className='font-bold'>Chakri</span> Lagbe</Link>
                     </div>
 
                     <div className="navbar-center hidden lg:flex">

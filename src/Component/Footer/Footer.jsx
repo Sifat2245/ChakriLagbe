@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className="bg-[#feeee7] w-full">
+        <div className="bg-[#ecfaff] w-full py-10">
             <footer className="footer sm:footer-horizontal text-base-content p-10 w-4/5 mx-auto">
                 <aside>
                     <a className="hover:cursor-pointer text-2xl"><span className='font-bold'>Chakri</span> Lagbe</a>
