@@ -4,6 +4,9 @@
 
 **Chakri Lagbe** is a job portal designed to connect job seekers with employers. Whether you're searching for your first job or looking to switch careers, Chakri Lagbe simplifies the process of job discovery and application.
 
+🔗 Live Website
+🌐 [Visit Chakri Lagbe](https://chakrilagbe.surge.sh/)
+
 ## 🔍 Purpose
 
 The purpose of this website is to create a user-friendly platform where:
@@ -27,3 +30,14 @@ The purpose of this website is to create a user-friendly platform where:
 - **Authentication**: Firebase Auth
 - **Hosting**: (e.g., Surge for frontend
 - **Version Control**: Git & GitHub
+
+## 📦 NPM Packages Used
+
+- [`react-router-dom`](https://www.npmjs.com/package/react-router) – For routing
+- [`firebase`](https://www.npmjs.com/package/firebase) – For authentication
+- [`framer-motion`](https://www.npmjs.com/package/framer-motion) – For animations
+- [`react-helmet`](https://www.npmjs.com/package/react-helmet) – For title
+- [`react-tostify`](https://www.npmjs.com/package/react-toastify) – For alert
+- [`react-icons`](https://www.npmjs.com/package/react-icons) – For icons
+- [`daisyui`](https://www.npmjs.com/package/daisyui) – UI components with Tailwind
+- [`tailwindcss`](https://www.npmjs.com/package/tailwindcss) – Utility-first CSS framework

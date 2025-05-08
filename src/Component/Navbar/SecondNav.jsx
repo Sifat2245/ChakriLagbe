@@ -9,7 +9,7 @@ import { CgProfile } from 'react-icons/cg';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-const Navbar = () => {
+const SecondNav = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -242,7 +242,7 @@ const Navbar = () => {
 
             {/* Navbar Wrapper for full-width background */}
             <div
-                className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${isScrolled ? 'bg-white text-black shadow-xl' : 'bg-transparent text-white'
+                className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${isScrolled ? 'bg-white text-black shadow-xl' : 'bg-transparent text-black border-b-1 border-[#00000046]'
                     }`}
             >
                 {/* Navbar Content */}
@@ -266,7 +266,7 @@ const Navbar = () => {
                                 onClick={handleLogout}
                                 className={`border ${isScrolled
                                     ? 'border-black text-black hover:bg-black hover:text-white'
-                                    : 'border-[#f1f1f1] text-[#f1f1f1] hover:bg-white hover:text-black'
+                                    : 'border-black text-black hover:bg-white hover:text-black'
                                     } p-2 px-3 rounded-2xl text-[12px] bg-transparent hidden md:block font-bold transition-all duration-300 ease-in-out`}
                             >
                                 Logout
@@ -274,7 +274,7 @@ const Navbar = () => {
                                 onClick={openModal}
                                 className={`border ${isScrolled
                                     ? 'border-black text-black hover:bg-black hover:text-white'
-                                    : 'border-[#f1f1f1] text-[#f1f1f1] hover:bg-white hover:text-black'
+                                    : 'border-black text-black hover:bg-white hover:text-black'
                                     } p-2 px-3 rounded-2xl text-[12px] bg-transparent hidden md:block font-bold transition-all duration-300 ease-in-out`}
                             >
                                 Sign In / Register
@@ -579,4 +579,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default SecondNav;
