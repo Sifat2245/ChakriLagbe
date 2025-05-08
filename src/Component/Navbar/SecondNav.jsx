@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const SecondNav = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [error, setError] = useState('')
 
 
     useEffect(() => {
@@ -66,6 +67,7 @@ const SecondNav = () => {
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        setError('')
 
         createUser(email, password)
 
@@ -77,6 +79,7 @@ const SecondNav = () => {
                 }).then(() => {
                     setUser({ ...user, displayName: name, photoURL: photo })
                     console.log(user);
+                    closeModal()
                 }).catch((error) => {
                     console.log(error.code);
                 })
@@ -84,6 +87,19 @@ const SecondNav = () => {
             .catch((error) => {
                 console.log(error.code);
             })
+
+            if(!/[A-Z]/.test(password)){
+                setError('Password must include at least one uppercase letter.')
+                return;
+            }else if(!/[a-z]/.test(password)){
+                setError('Password must include at least one lowercase letter.')
+                return;
+            }else if(password.length < 6){
+                setError('Password must be at least 6 characters long.')
+                return;
+            }else{
+                setError('')
+            }
     }
 
     //login user
@@ -98,6 +114,7 @@ const SecondNav = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user)
+                closeModal()
 
             })
             .catch((error) => {
@@ -360,7 +377,7 @@ const SecondNav = () => {
                                                     </div>
                                                     <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl" required />
                                                     <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl" required />
-                                                    <button onClick={closeModal} type="submit" className="btn bg-[#1d225f] text-white w-full rounded-4xl py-6">Login</button>
+                                                    <button type="submit" className="btn bg-[#1d225f] text-white w-full rounded-4xl py-6">Login</button>
                                                     <div className="flex flex-col items-center gap-3">
                                                         <button
                                                             type="button"
@@ -401,7 +418,10 @@ const SecondNav = () => {
                                                     <input type="text" name='photo' placeholder="Image URL" className="input w-full py-6 rounded-4xl" required />
                                                     <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl" required />
                                                     <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl" required />
-                                                    <button onClick={closeModal} type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Sign Up</button>
+                                                    {
+                                                        error && <p className='text-red-600 p-1'>{error}</p>
+                                                    }
+                                                    <button type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Sign Up</button>
                                                     <p className="text-center">
                                                         Already have an account?{" "}
                                                         <button type="button" onClick={() => setActiveTab('login')} className="text-[#1d225f] hover:underline">
