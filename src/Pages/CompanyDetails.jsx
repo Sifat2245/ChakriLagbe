@@ -4,6 +4,8 @@ import Navbar from '../Component/Navbar/Navbar';
 import { IoLocationOutline } from "react-icons/io5";
 import Footer from '../Component/Footer/Footer';
 import Jobs from '../Component/Jobs/Jobs';
+import PageTitle from '../Component/PageTittle/PageTitle';
+import { motion } from "framer-motion";
 
 const CompanyDetails = () => {
     const data = useLoaderData()
@@ -18,6 +20,7 @@ const CompanyDetails = () => {
     console.log(details);
     return (
         <div>
+            <PageTitle title={`${details.name ? details.name : 'Company Details - Chakri Lagbe'}`}></PageTitle>
             <header className=''
                 style={{
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${details.companyBanner})`,
@@ -55,17 +58,22 @@ const CompanyDetails = () => {
 
                     <div className=''>
                         {
-                            details.jobs?.map(job => <Jobs 
-                                key={job.id} 
-                                job={job} 
-                                logo={details.logo} 
+                            details.jobs?.map(job => <Jobs
+                                key={job.id}
+                                job={job}
+                                logo={details.logo}
                                 website={details?.website}></Jobs>)
                         }
                     </div>
 
                 </section>
                 {/* right side */}
-                <aside className='p-10 bg-[#feeee7] lg:col-span-3 rounded-3xl my-24'>
+                <motion.aside
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className='p-10 bg-[#feeee7] lg:col-span-3 rounded-3xl my-24'
+                >
                     <div className='mb-4'>
                         <p className='text-[#00000083]'>Industry</p>
                         <p className='text-[18px] font-semibold text-[#0000009c]'>{details.industry}</p>
@@ -93,11 +101,10 @@ const CompanyDetails = () => {
                             {details.website}
                         </a>
                     </div>
-
-                </aside>
+                </motion.aside>
             </main>
 
-            
+
             <footer>
                 <Footer></Footer>
             </footer>

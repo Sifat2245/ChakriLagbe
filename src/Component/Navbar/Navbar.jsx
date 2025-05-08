@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [error, setError] = useState('')
 
 
     useEffect(() => {
@@ -67,8 +68,9 @@ const Navbar = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        createUser(email, password)
+        setError('')
 
+        createUser(email, password)
             .then((result) => {
                 const user = result.user
                 updateUser({
@@ -77,6 +79,7 @@ const Navbar = () => {
                 }).then(() => {
                     setUser({ ...user, displayName: name, photoURL: photo })
                     console.log(user);
+                    closeModal()
                 }).catch((error) => {
                     console.log(error.code);
                 })
@@ -84,6 +87,20 @@ const Navbar = () => {
             .catch((error) => {
                 console.log(error.code);
             })
+
+
+            if(!/[A-Z]/.test(password)){
+                setError('Password must include at least one uppercase letter.')
+                return;
+            }else if(!/[a-z]/.test(password)){
+                setError('Password must include at least one lowercase letter.')
+                return;
+            }else if(password.length < 6){
+                setError('Password must be at least 6 characters long.')
+                return;
+            }else{
+                setError('')
+            }
     }
 
     //login user
@@ -98,7 +115,7 @@ const Navbar = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user)
-
+                closeModal()
             })
             .catch((error) => {
                 console.log(error.code);
@@ -167,7 +184,7 @@ const Navbar = () => {
         <>
             <li>
                 <NavLink
-                    to="/"
+                    to="/find_jobs"
                     className="relative after:content-[''] after:absolute after:left-0 after:-bottom-2 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"
                 >
                     Find Jobs
@@ -197,14 +214,7 @@ const Navbar = () => {
                     About Us
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to="/faqs"
-                    className="relative after:content-[''] after:absolute after:left-0 after:-bottom-2 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full"
-                >
-                    FAQs
-                </NavLink>
-            </li>
+            
         </>
     );
 
@@ -344,7 +354,7 @@ const Navbar = () => {
                                 <form method="dialog">
                                     <button
                                         type="button"
-                                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black"
                                         onClick={closeModal}
                                     >
                                         ✕
@@ -363,11 +373,11 @@ const Navbar = () => {
                                                         <img className='px-36' src={login} alt="" />
                                                     </div>
                                                     <div className='text-center pb-3'>
-                                                        <h1 className='text-2xl font-semibold'>Welcome Back!</h1>
+                                                        <h1 className='text-2xl font-semibold text-black'>Welcome Back!</h1>
                                                     </div>
-                                                    <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl" required />
-                                                    <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl" required />
-                                                    <button onClick={closeModal} type="submit" className="btn bg-[#1d225f] text-white w-full rounded-4xl py-6">Login</button>
+                                                    <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl text-black" required />
+                                                    <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl text-black" required />
+                                                    <button type="submit" className="btn bg-[#1d225f] text-white w-full rounded-4xl py-6">Login</button>
                                                     <div className="flex flex-col items-center gap-3">
                                                         <button
                                                             type="button"
@@ -376,7 +386,7 @@ const Navbar = () => {
                                                         >
                                                             Forgot Password?
                                                         </button>
-                                                        <p>
+                                                        <p className='text-black'>
                                                             New at Chakri Lagbe?{" "}
                                                             <button type="button" onClick={() => setActiveTab('signup')} className="text-[#1d225f] hover:underline">
                                                                 Create An Account
@@ -402,14 +412,17 @@ const Navbar = () => {
                                                         <img className='px-32' src={signup} alt="" />
                                                     </div>
                                                     <div className='text-center pb-3'>
-                                                        <h1 className='text-2xl font-semibold'>Create An Account</h1>
+                                                        <h1 className='text-2xl font-semibold text-black'>Create An Account</h1>
                                                     </div>
-                                                    <input type="text" name='name' placeholder="Full Name" className="input w-full py-6 rounded-4xl" required />
-                                                    <input type="text" name='photo' placeholder="Image URL" className="input w-full py-6 rounded-4xl" required />
-                                                    <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl" required />
-                                                    <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl" required />
-                                                    <button onClick={closeModal} type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Sign Up</button>
-                                                    <p className="text-center">
+                                                    <input type="text" name='name' placeholder="Full Name" className="input w-full py-6 rounded-4xl text-black" required />
+                                                    <input type="text" name='photo' placeholder="Image URL" className="input w-full py-6 rounded-4xl text-black" required />
+                                                    <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl text-black" required />
+                                                    <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl text-black" required />
+                                                    {
+                                                        error && <p className='text-red-600 p-1'>{error}</p>
+                                                    }
+                                                    <button type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Sign Up</button>
+                                                    <p className="text-center text-black">
                                                         Already have an account?{" "}
                                                         <button type="button" onClick={() => setActiveTab('login')} className="text-[#1d225f] hover:underline">
                                                             Sign In
@@ -432,12 +445,12 @@ const Navbar = () => {
                                             return (
                                                 <form onSubmit={handleReset} className="space-y-4 p-12 w-full mx-auto">
                                                     <div className='text-center pb-3'>
-                                                        <h1 className='text-2xl font-semibold'>Reset Your Password</h1>
+                                                        <h1 className='text-2xl font-semibold text-black'>Reset Your Password</h1>
                                                         <p className='text-sm text-gray-600 mt-2'>Enter your email address and we'll send you a password reset link.</p>
                                                     </div>
-                                                    <input type="email" name='email' placeholder="Your Email" className="input w-full py-6 rounded-4xl" required />
+                                                    <input type="email" name='email' placeholder="Your Email" className="input w-full py-6 rounded-4xl text-black" required />
                                                     <button type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Continue</button>
-                                                    <p className="text-center mt-4">
+                                                    <p className="text-center mt-4 text-black">
                                                         Back to{" "}
                                                         <button type="button" onClick={() => setActiveTab('login')} className="text-[#1d225f] hover:underline">
                                                             Login
