@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router';
 import login from '../../assets/login.png'
 import signup from '../../assets/signp.png'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
+import { FiGithub } from 'react-icons/fi';
 
 const Navbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -51,7 +53,7 @@ const Navbar = () => {
 
     //firebase authentication
 
-    const { createUser, loginUser, logOutUser, setUser, user } = use(AuthContext)
+    const { createUser, loginUser, loginWIthGoogle, loginWithGitHub, resetPassword, logOutUser, setUser, user } = use(AuthContext)
 
     //create user 
     const handleRegister = (e) => {
@@ -80,10 +82,55 @@ const Navbar = () => {
         const password = e.target.password.value;
 
         loginUser(email, password)
-        .then((result) => {
-            const user = result.user;
-            console.log(user);
-            setUser(user)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                setUser(user)
+            })
+            .catch((error) => {
+                console.log(error.code);
+            })
+    }
+
+    // signin with google
+
+    const handleSignIn = () => {
+        loginWIthGoogle()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                setUser(user)
+            })
+            .catch((error) => {
+                console.log(error.code);
+            })
+    }
+
+    //sign in with facebook
+
+    const handleGitHubSignIn = () => {
+        loginWithGitHub()
+            .then((result) => {
+                const user = result.user;
+                setUser(user)
+                console.log(user);
+            })
+            .catch((error) => {
+                console.log(error.code);
+            })
+    }
+
+    // reset password
+
+    const handleReset = (e) =>{
+        e.preventDefault()
+        const email = e.target.email.value;
+
+        resetPassword(email)
+        .then(() =>{
+            alert('A reset Email is sent to your gmail account')
+            window.open('https://mail.google.com', '_blank');
+
         })
         .catch((error) =>{
             console.log(error.code);
@@ -248,7 +295,7 @@ const Navbar = () => {
                 className={`modal ${isModalOpen ? 'modal-open' : ''}`}
                 onClick={handleOverlayClick}
             >
-                <div className="modal-box relative bg-white rounded-lg shadow-lg w-11/12 max-w-md p-6 animate__animated animate__fadeIn animate__faster">
+                <div className="modal-box relative bg-white rounded-lg shadow-lg w-11/12 max-w-xl p-6 animate__animated animate__fadeIn animate__faster">
                     <form method="dialog">
                         <button
                             type="button"
@@ -259,85 +306,108 @@ const Navbar = () => {
                         </button>
                     </form>
 
+                    {/* FORM HANDLING BASED ON activeTab */}
+                    {(() => {
+                        switch (activeTab) {
 
-                    {/* Login Form */}
-                    {activeTab === 'login' ? (
-                        <form onSubmit={handleLogin} className="space-y-6 p-12 w-full mx-auto">
-                            <div>
-                                <img className='px-20' src={login} alt="" />
-                            </div>
-                            <div className='text-center pb-3'>
-                                <h1 className='text-2xl font-semibold'>Welcome Back!</h1>
-                            </div>
-                            <input
-                                type="email"
-                                name='email'
-                                placeholder="Email"
-                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
-                                required
-                            />
-                            <input
-                                type="password"
-                                name='password'
-                                placeholder="Password"
-                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
-                                required
-                            />
-                            <button type="submit" className="btn bg-[#1d225f] text-white  w-full rounded-4xl text-lg py-6">Login</button>
-                            <div className="flex flex-col items-center gap-3">
-                                <a href="/forgot-password" className=" hover:underline text-[#1d225f] my-3">Forgot Password?</a>
-                                <p>New At Chakri Lagbe? <span type="button" className=" hover:underline text-[#1d225f]" onClick={() => setActiveTab('signup')}>Create An Account</span></p>
-                            </div>
-                        </form>
+                            // login form
+                            case 'login':
+                                return (
+                                    <form onSubmit={handleLogin} className="space-y-4 p-12 w-full mx-auto">
+                                        <div>
+                                            <img className='px-36' src={login} alt="" />
+                                        </div>
+                                        <div className='text-center pb-3'>
+                                            <h1 className='text-2xl font-semibold'>Welcome Back!</h1>
+                                        </div>
+                                        <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl" required />
+                                        <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl" required />
+                                        <button type="submit" className="btn bg-[#1d225f] text-white w-full rounded-4xl py-6">Login</button>
+                                        <div className="flex flex-col items-center gap-3">
+                                            <button
+                                                type="button"
+                                                className="text-[#1d225f] hover:underline my-3"
+                                                onClick={() => setActiveTab('forgotPassword')}
+                                            >
+                                                Forgot Password?
+                                            </button>
+                                            <p>
+                                                New at Chakri Lagbe?{" "}
+                                                <button type="button" onClick={() => setActiveTab('signup')} className="text-[#1d225f] hover:underline">
+                                                    Create An Account
+                                                </button>
+                                            </p>
+                                            <div className='flex gap-4 pt-2'>
+                                                <button onClick={handleSignIn} className="btn bg-white text-black hover:bg-[#1d225f] hover:text-white border-[#000000]">
+                                                    <FaGoogle /> Login with Google
+                                                </button>
+                                                <button onClick={handleGitHubSignIn} className="btn bg-white text-black hover:bg-[#1d225f] hover:text-white border-[#000000]">
+                                                    <FiGithub /> Login with GitHub
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                );
 
-                    ) : (
-                        // Sign Up Form
-                        <form onSubmit={handleRegister} className="space-y-6 p-12 w-full mx-auto">
-                            <div>
-                                <img className='px-16' src={signup} alt="" />
-                            </div>
-                            <div className='text-center pb-3'>
-                                <h1 className='text-2xl font-semibold'>Create An Account</h1>
-                            </div>
-                            <input
-                                type="text"
-                                name='name'
-                                placeholder="Full Name"
-                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
-                                required
-                            />
-                            <input
-                                type="text"
-                                name='photo'
-                                placeholder='Image URL'
-                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
-                                required
-                            />
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                name='email'
-                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
-                                required
-                            />
-                            <input
-                                type="password"
-                                name='password'
-                                placeholder="Password"
-                                className="border-1 border-[#0000002c] rounded-4xl w-full text-lg py-3 px-4"
-                                required
-                            />
-                            <button type="submit" className="btn bg-[#1d225f] text-white  w-full rounded-4xl text-lg py-6">Sign Up</button>
-                            <div className="text-sm text-center">
-                                <p className="text-gray-600">Already have an account?
-                                    <button type="button" className="[#1d225f] hover:underline" onClick={() => setActiveTab('login')}> Sign In</button>
-                                </p>
-                            </div>
-                        </form>
+                                // signup form
+                            case 'signup':
+                                return (
+                                    <form onSubmit={handleRegister} className="space-y-4 p-12 w-full mx-auto">
+                                        <div>
+                                            <img className='px-32' src={signup} alt="" />
+                                        </div>
+                                        <div className='text-center pb-3'>
+                                            <h1 className='text-2xl font-semibold'>Create An Account</h1>
+                                        </div>
+                                        <input type="text" name='name' placeholder="Full Name" className="input w-full py-6 rounded-4xl" required />
+                                        <input type="text" name='photo' placeholder="Image URL" className="input w-full py-6 rounded-4xl" required />
+                                        <input type="email" name='email' placeholder="Email" className="input w-full py-6 rounded-4xl" required />
+                                        <input type="password" name='password' placeholder="Password" className="input w-full py-6 rounded-4xl" required />
+                                        <button type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Sign Up</button>
+                                        <p className="text-center">
+                                            Already have an account?{" "}
+                                            <button type="button" onClick={() => setActiveTab('login')} className="text-[#1d225f] hover:underline">
+                                                Sign In
+                                            </button>
+                                        </p>
+                                        <div className='flex gap-4 justify-center pt-2'>
+                                            <button onClick={handleSignIn} className="btn bg-white text-black hover:bg-[#1d225f] hover:text-white border-[#000000]">
+                                                <FaGoogle /> Login with Google
+                                            </button>
+                                            <button onClick={handleGitHubSignIn} className="btn bg-white text-black hover:bg-[#1d225f] hover:text-white border-[#000000]">
+                                                <FiGithub /> Login with GitHub
+                                            </button>
+                                        </div>
+                                    </form>
+                                );
 
-                    )}
+                                // forget password form
+
+                            case 'forgotPassword':
+                                return (
+                                    <form onSubmit={handleReset} className="space-y-4 p-12 w-full mx-auto">
+                                        <div className='text-center pb-3'>
+                                            <h1 className='text-2xl font-semibold'>Reset Your Password</h1>
+                                            <p className='text-sm text-gray-600 mt-2'>Enter your email address and we'll send you a password reset link.</p>
+                                        </div>
+                                        <input type="email" name='email' placeholder="Your Email" className="input w-full py-6 rounded-4xl" required />
+                                        <button type="submit" className="btn bg-[#1d225f] text-white w-full py-6 rounded-4xl">Continue</button>
+                                        <p className="text-center mt-4">
+                                            Back to{" "}
+                                            <button type="button" onClick={() => setActiveTab('login')} className="text-[#1d225f] hover:underline">
+                                                Login
+                                            </button>
+                                        </p>
+                                    </form>
+                                );
+
+                            default:
+                                return null;
+                        }
+                    })()}
                 </div>
             </dialog>
+
 
         </>
     );
