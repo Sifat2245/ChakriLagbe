@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, use } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import login from '../../assets/login.png'
 import signup from '../../assets/signp.png'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
@@ -58,7 +58,7 @@ const Navbar = () => {
 
     //firebase authentication
 
-    const { createUser, loginUser, loginWIthGoogle, loginWithGitHub, resetPassword, updateUser, logOutUser, setUser, user } = use(AuthContext)
+    const { createUser, loginUser,  loginWIthGoogle, loginWithGitHub, resetPassword, updateUser, logOutUser, setUser, user } = use(AuthContext)
 
     //create user 
     const handleRegister = (e) => {
@@ -69,6 +69,19 @@ const Navbar = () => {
         const password = e.target.password.value;
 
         setError('')
+
+        if(!/[A-Z]/.test(password)){
+                setError('Password must include at least one uppercase letter.')
+                return;
+            }else if(!/[a-z]/.test(password)){
+                setError('Password must include at least one lowercase letter.')
+                return;
+            }else if(password.length < 6){
+                setError('Password must be at least 6 characters long.')
+                return;
+            }else{
+                setError('')
+            }
 
         createUser(email, password)
             .then((result) => {
@@ -86,21 +99,9 @@ const Navbar = () => {
             })
             .catch((error) => {
                 console.log(error.code);
+                setError(error.message)
             })
-
-
-            if(!/[A-Z]/.test(password)){
-                setError('Password must include at least one uppercase letter.')
-                return;
-            }else if(!/[a-z]/.test(password)){
-                setError('Password must include at least one lowercase letter.')
-                return;
-            }else if(password.length < 6){
-                setError('Password must be at least 6 characters long.')
-                return;
-            }else{
-                setError('')
-            }
+            
     }
 
     //login user
@@ -109,16 +110,17 @@ const Navbar = () => {
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
+        
 
         loginUser(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 setUser(user)
                 closeModal()
             })
             .catch((error) => {
-                console.log(error.code);
+                // console.log(error.code);
             })
     }
 
@@ -151,6 +153,19 @@ const Navbar = () => {
                 console.log(error.code);
             })
     }
+
+    // const handleFacebookSignIn = () => {
+    //     loginWithFacebook()
+    //         .then((result) => {
+    //             const user = result.user;
+    //             setUser(user)
+    //             console.log(user);
+    //             closeModal()
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.code);
+    //         })
+    // }
 
     // reset password
 
